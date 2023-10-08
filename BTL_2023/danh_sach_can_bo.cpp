@@ -15,16 +15,17 @@ public:
     }
     void create_list()
     {
-        cout<<"Tao danh sach can bo\n";
-        int i=0;
+        cout << "Tao danh sach can bo\n";
+        int i = 0;
         while (1)
         {
-            cout<<"Nhap thong tin can bo thu "<<++i<<endl;
+            cout << "Nhap thong tin can bo thu " << ++i << endl;
             can_bo temp;
             if (!temp.input())
-                return;
+                break;
             a.push_back(temp);
         }
+        // sort();
     }
     void add()
     {
@@ -44,7 +45,7 @@ public:
             cin >> temp;
             if (n == 1)
                 a.push_front(temp);
-            else if (n == a.size())
+            else if (n == a.size() + 1)
                 a.push_back(temp);
             else
             {
@@ -97,37 +98,54 @@ public:
     }
     void display()
     {
-        sort();
-        cout << "Danh sach cac can bo co he so luong tren 4.4 la:\n";
-        int j=0;
+        int j = 0;
         for (iter<can_bo> i = a.dau(); i != a.cuoi()++; i++)
         {
             can_bo temp = i.getnode()->getE();
             if (temp.he_so_luong() >= 4.4)
-                cout <<++j<<". "<<temp << endl;
+            {
+                if (!j)
+                    cout << "Danh sach cac can bo co he so luong tren 4.4 la:\n";
+                cout << ++j << ". " << temp << endl;
+            }
         }
+        if (!j)
+            cout << "Khong co can bo co he so luong tren 4.4\n";
+        return;
     }
     void search(string cvu)
     {
-        sort();
-        cout << "Danh sach cac can bo co chuc vu " << cvu << " la" << endl;
+        int j = 0;
         for (iter<can_bo> i = a.dau(); i != a.cuoi()++; i++)
         {
             can_bo temp = i.getnode()->getE();
             if (temp.chuc_vu() == cvu)
-                cout << temp << endl;
+            {
+                if (!j)
+                    cout << "Danh sach cac can bo co chuc vu " << cvu << " la" << endl;
+                cout << ++j << ". " << temp << endl;
+            }
         }
+        if (!j)
+            cout << "Khong co can bo giu chuc vu " << cvu << endl;
+        return;
     }
     void search(float hsl, string phong)
     {
-        sort();
-        cout << "Danh sach cac can bo co he so luong tren 4.4 va o phong ban " << phong << "la:\n";
+        int j = 0;
         for (iter<can_bo> i = a.dau(); i != a.cuoi()++; i++)
         {
             can_bo temp = i.getnode()->getE();
             if (temp.he_so_luong() == hsl && temp.phong_ban() == phong)
-                cout << temp << endl;
+            {
+                if (!j)
+                    cout << "Danh sach cac can bo co he so luong tren 4.4 o phong ban " << phong << "la:\n";
+                cout << ++j << ". " << temp << endl;
+            }
         }
+        if (!j)
+            cout << "Khong co can bo co he so luong " << hsl << " o phong " << phong << endl;
+        return;
     }
 };
 #endif

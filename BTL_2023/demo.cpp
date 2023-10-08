@@ -1,9 +1,15 @@
 #include "danh_sach_can_bo.cpp"
 using namespace std;
-int main() {
+int main()
+{
     list_cb a;
     a.create_list();
+    
+    string x;
+    cin.ignore(1);
+    cout<<"Nhap chuc vu can tim: ";
+    getline(cin,x);
+    a.search(x);
     a.display();
-    a.search("truong phong");
     return 0;
 }

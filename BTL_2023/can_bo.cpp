@@ -7,7 +7,7 @@ class can_bo
     int macb;
     string ho, ten, ban, cvu;
     float hsl;
-    float luong;
+    long long luong;
     void tinh_luong()
     {
         luong = hsl * 1350000;
@@ -134,6 +134,6 @@ public:
     string phong_ban() { return ban; }
     string chuc_vu() { return cvu; }
     float he_so_luong() { return hsl; }
-    float Luong() { return luong; }
+    long long Luong() { return luong; }
 };
 #endif
