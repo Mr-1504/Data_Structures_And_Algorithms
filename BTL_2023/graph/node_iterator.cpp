@@ -11,9 +11,6 @@ public:
     iter() { a = nullptr; }
     iter(node<T> *x) { a = x; }
     node<T> *getnode() { return a; }
-    void setnode(node<T> *x) { 
-        a=new node<T>;
-        a=x; }
     iter<T> &operator=(iter<T> x)
     {
         this->a = x.getnode();
