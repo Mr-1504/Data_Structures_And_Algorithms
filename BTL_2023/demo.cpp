@@ -4,7 +4,6 @@ int main()
 {
     list_cb a;
     a.create_list();
-    
     string x;
     cin.ignore(1);
     cout<<"Nhap chuc vu can tim: ";

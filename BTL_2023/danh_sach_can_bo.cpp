@@ -77,9 +77,9 @@ public:
     }
     void sort()
     {
-        for (iter<can_bo> i = a.dau(); i != a.cuoi()++; i++)
+        for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
-            for (iter<can_bo> j = i; j != a.cuoi()++; j++)
+            for (iter<can_bo> j = i; j != nullptr; j++)
             {
                 can_bo X = i.getnode()->getE();
                 can_bo Y = j.getnode()->getE();
@@ -98,6 +98,7 @@ public:
     }
     void display()
     {
+        sort();
         int j = 0;
         for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
