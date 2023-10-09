@@ -16,6 +16,11 @@ public:
         next = nullptr;
         this->data = data;
     }
+    node &operator = (const node&x){
+        data=x.data;
+        next = x.next;
+        return *this;
+    }
     void setE(T x) { data = x; }
     void setNext(node<T> *x) { next = x; }
     T &getE() { return data; }

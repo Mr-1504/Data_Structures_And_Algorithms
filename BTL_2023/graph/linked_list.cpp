@@ -18,6 +18,14 @@ public:
     bool empty() { return num == 0; }
     T &front() { return head->getE(); }
     T &back() { return end->getE(); }
+    Don_list &operator = (const Don_list&x){
+        head = new node<T>;
+        head = x.head;
+        num= x.num;
+        end = new node<T>;
+        end= x.end;
+        return *this;
+    }
     void push_front(T x)
     {
         node<T> *temp = new node<T>;
@@ -45,7 +53,7 @@ public:
     }
     void push_back(T x)
     {
-        insert(cuoi().getnode(),x);
+        insert(cuoi().getnode(), x);
     }
     void erase_head()
     {
@@ -53,18 +61,25 @@ public:
             return;
         if (num == 1)
         {
+            delete head;
             head = end = nullptr;
             return;
         }
         node<T> *temp = new node<T>;
         temp = head->getNext();
         head = temp;
+        delete temp;
         num--;
     }
     void erase(node<T> *p)
     {
+        if (!num)
+            return;
+        if (p == nullptr)
+            return;
         node<T> *temp = p->getNext();
-        p = temp->getNext();
+        p->setNext(temp->getNext());
+        delete temp;
         num--;
     }
     void pop_front()
@@ -78,11 +93,13 @@ public:
         else
         {
             node<T> *temp = new node<T>;
+            temp = head;
             while (temp->getNext() != end)
             {
-                temp++;
+                temp = temp->getNext();
             }
             erase(temp);
+            end=temp;
         }
     }
     iter<T> dau() { return head; }
