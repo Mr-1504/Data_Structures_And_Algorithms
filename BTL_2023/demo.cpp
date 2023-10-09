@@ -9,7 +9,8 @@ int main()
     cin.ignore(1);
     cout<<"Nhap chuc vu can tim: ";
     getline(cin,x);
-    a.search(x);
     a.display();
+    a.search(x);
+    cout<<"\n-5";
     return 0;
 }

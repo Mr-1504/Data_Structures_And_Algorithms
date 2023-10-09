@@ -99,7 +99,7 @@ public:
     void display()
     {
         int j = 0;
-        for (iter<can_bo> i = a.dau(); i != a.cuoi()++; i++)
+        for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
             can_bo temp = i.getnode()->getE();
             if (temp.he_so_luong() >= 4.4)
@@ -116,7 +116,7 @@ public:
     void search(string cvu)
     {
         int j = 0;
-        for (iter<can_bo> i = a.dau(); i != a.cuoi()++; i++)
+        for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
             can_bo temp = i.getnode()->getE();
             if (temp.chuc_vu() == cvu)
@@ -133,7 +133,7 @@ public:
     void search(float hsl, string phong)
     {
         int j = 0;
-        for (iter<can_bo> i = a.dau(); i != a.cuoi()++; i++)
+        for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
             can_bo temp = i.getnode()->getE();
             if (temp.he_so_luong() == hsl && temp.phong_ban() == phong)
