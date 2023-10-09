@@ -49,17 +49,10 @@ public:
                 a.push_back(temp);
             else
             {
-                int i = 0;
-                node<can_bo> *x = new node<can_bo>;
-                iter<can_bo> y;
-                y = a.dau();
-                x = y.getnode();
-                while (i < n - 1 && x != nullptr)
-                {
-                    y++;
-                    x = y.getnode();
-                }
-                a.insert(x, temp);
+                int j = 0;
+                for (iter<can_bo> i = a.dau(); i != nullptr; i++, j++)
+                    if (j == n - 1)
+                        a.insert(i.getnode(), temp);
             }
             break;
         }
@@ -83,12 +76,7 @@ public:
             {
                 can_bo X = i.getnode()->getE();
                 can_bo Y = j.getnode()->getE();
-                if (X.Ten() > Y.Ten())
-                {
-                    j.getnode()->setE(X);
-                    i.getnode()->setE(Y);
-                }
-                else if (X.Ho() > Y.Ho())
+                if (X.Ten() > Y.Ten() || (X.Ten() == Y.Ten() && X.Ho() > Y.Ho()))
                 {
                     j.getnode()->setE(X);
                     i.getnode()->setE(Y);
@@ -116,6 +104,7 @@ public:
     }
     void search(string cvu)
     {
+        sort();
         int j = 0;
         for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
@@ -133,6 +122,7 @@ public:
     }
     void search(float hsl, string phong)
     {
+        sort();
         int j = 0;
         for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {

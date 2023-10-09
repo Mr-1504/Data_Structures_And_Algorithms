@@ -4,12 +4,12 @@ int main()
 {
     list_cb a;
     a.create_list();
+    a.add();
+    a.display();
+    cout<<"Nhap chuc vu can tim: ";
     string x;
     cin.ignore(1);
-    cout<<"Nhap chuc vu can tim: ";
     getline(cin,x);
-    a.display();
     a.search(x);
-    cout<<"\n-5";
     return 0;
 }
