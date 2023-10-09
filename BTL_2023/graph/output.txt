@@ -1,0 +1,17 @@
+Số đỉnh: 4
+Đỉnh 0 kết nối với:
+	Đỉnh 1 có trọng số 2
+	Đỉnh 2 có trọng số 1
+
+Đỉnh 1 kết nối với:
+	Đỉnh 0 có trọng số 0
+	Đỉnh 2 có trọng số 3
+
+Đỉnh 2 kết nối với:
+	Đỉnh 0 có trọng số 3
+	Đỉnh 1 có trọng số 0
+
+Đỉnh 3 kết nối với:
+	Đỉnh 3 có trọng số 0
+	Đỉnh 3 có trọng số 0
+
