@@ -64,15 +64,15 @@ public:
         {
             cout << "Đỉnh " << x.a[i].front() << " kết nối với:\n";
             node<int> *temp = x.a[i].dau().getnode()->getNext();
-            int j = 1;
+            int j = x.a[i].front();
             while (temp != nullptr)
             {
-                cout << "\tĐỉnh " << temp->getE() << " có trọng số " << x.trongso[i * x.n + j] << endl;
+                int k = temp->getE();
+                cout << "\tĐỉnh " << k << " có trọng số " << x.trongso[j * x.n + k] << endl;
                 temp = temp->getNext();
-                j++;
             }
-            cout << endl;
         }
+        cout << endl;
         return cout;
     }
     friend ostream &operator<<(ostream &cout, const adj_list &x)
@@ -80,14 +80,14 @@ public:
         cout << "So dinh: " << x.n << endl;
         for (int i = 0; i < x.n; i++)
         {
-            int j=1;
-            cout << "Dinh " << x.a[i].front() << " ket noi voi:\n";
+            int j = x.a[i].front();
+            cout << "Dinh " << j << " ket noi voi:\n";
             node<int> *temp = x.a[i].dau().getnode()->getNext();
             while (temp != nullptr)
             {
-                cout <<"\tDinh "<< temp->getE() << " co trong so "<< x.trongso[i*x.n +j]<<endl;
+                int k = temp->getE();
+                cout << "\tDinh " << k << " co trong so " << x.trongso[k * x.n + j] << endl;
                 temp = temp->getNext();
-                j++;
             }
             cout << endl;
         }
