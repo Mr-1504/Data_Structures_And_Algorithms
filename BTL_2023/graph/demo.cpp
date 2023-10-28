@@ -1,13 +1,17 @@
 #include "danhsachke.cpp"
 using namespace std;
-int main(){
+int main()
+{
     ifstream input("input.txt");
-    int n;
-    input>>n;
-    adj_list a(n);
-    input>>a;
+    Graph a;
+    input >> a;
+    // cin>>a;
     ofstream output("output.txt");
-    output<<a;
-    cout<<a;
-    cout<<a.dem_lien_thong();
+    output << a;
+    // cout<<a;
+    // a.dem_lien_thong();
+    // a.BFS();
+    a.con(output);
+    a.dijkstra();
+    cout << "end";
 }
