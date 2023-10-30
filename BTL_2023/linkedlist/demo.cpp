@@ -3,13 +3,7 @@ using namespace std;
 int main()
 {
     list_cb a;
-    a.create_list();
-    a.add();
-    a.display();
-    cout<<"Nhap chuc vu can tim: ";
-    string x;
-    cin.ignore(1);
-    getline(cin,x);
-    a.search(x);
+    a.home();
+    a.end_task();
     return 0;
 }

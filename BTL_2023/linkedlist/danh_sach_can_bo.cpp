@@ -3,6 +3,7 @@
 #ifndef _danh_sach_cpp
 #define _danh_sach_cpp
 using namespace std;
+bool cnt = true;
 class list_cb
 {
     Don_list<can_bo> a;
@@ -102,6 +103,17 @@ public:
             cout << "Khong co can bo co he so luong tren 4.4\n";
         return;
     }
+    void _display()
+    {
+        sort();
+        int j = 0;
+        for (iter<can_bo> i = a.dau(); i != nullptr; i++)
+        {
+            can_bo temp = i.getnode()->getE();
+            cout << ++j << ". " << temp << endl;
+        }
+        return;
+    }
     void search(string cvu)
     {
         sort();
@@ -137,6 +149,191 @@ public:
         if (!j)
             cout << "Khong co can bo co he so luong " << hsl << " o phong " << phong << endl;
         return;
+    }
+    void home()
+    {
+        if (cnt)
+        {
+            cout << "\t-----------------^-^-----------------\n";
+            cout << "\t|\tDanh sach can bo trong      |\n";
+            cout << "\t-------------------------------------\n";
+            cout << "\t|\t1. Tao moi danh sach        |\n";
+            cout << "\t|\t2. Thoat chuong trinh.      |\n";
+            cout << "\t-------------------------------------\n";
+            int n;
+            cout << "Chon tac vu mong muon: ";
+            cin >> n;
+            switch (n)
+            {
+            case 1:
+            {
+                cout << "--------------------------^-^------------------------------\n";
+                create_list();
+                cnt = false;
+                cout << "Tao moi hoan tat!\n";
+                cout << "--------------------------^-^------------------------------\n";
+                cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
+                char x;
+                cin >> x;
+                if (x == 'y')
+                    home();
+                else
+                    return;
+                break;
+            }
+            case 2:
+                return;
+            default:
+            {
+                cout << "Thao tac khong hop le!\nBan co muon tiep tuc.\n'y' de tiep tuc hoac 'n' de tu choi: ";
+                char x;
+                cin >> x;
+                if (x == 'y')
+                    home();
+                else
+                    return;
+                break;
+            }
+            }
+        }
+        else
+        {
+            cout << "\t--------------------------^-^------------------------------\n";
+            cout << "\t|\t1. Tao danh sach moi.                             |\n";
+            cout << "\t|\t2. Them mot can bo moi.                           |\n";
+            cout << "\t|\t3. Xem danh sach can bo.                          |\n";
+            cout << "\t|\t4. Thong ke can bo co he so luong tren 4.4.       |\n";
+            cout << "\t|\t5. Loc theo chuc vu.                              |\n";
+            cout << "\t|\t6. Loc theo he so luong va phong ban.             |\n";
+            cout << "\t|\t7. Thoat chuong trinh.                            |\n";
+            cout << "\t-----------------------------------------------------------\n";
+            int n;
+            cout << "Chon tac vu mong muon: ";
+            cin >> n;
+            switch (n)
+            {
+            case 1:
+            {
+                cout << "--------------------------^-^------------------------------\n";
+                create_list();
+                cnt = false;
+                cout << "Tao moi hoan tat!\n";
+                cout << "--------------------------^-^------------------------------\n";
+                cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
+                char x;
+                cin >> x;
+                if (x == 'y')
+                    home();
+                else
+                    return;
+                break;
+            }
+            case 2:
+            {
+                cout << "--------------------------^-^------------------------------\n";
+                add();
+                cout << "--------------------------^-^------------------------------\n";
+                cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
+                char x;
+                cin >> x;
+                if (x == 'y')
+                    home();
+                else
+                    return;
+                break;
+            }
+            case 3:
+            {
+                cout << "--------------------------^-^------------------------------\n";
+                _display();
+                cout << "--------------------------^-^------------------------------\n";
+                cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
+                char x;
+                cin >> x;
+                if (x == 'y')
+                    home();
+                else
+                    return;
+                break;
+            }
+            case 4:
+            {
+                cout << "--------------------------^-^------------------------------\n";
+                display();
+                cout << "--------------------------^-^------------------------------\n";
+                cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
+                char x;
+                cin >> x;
+                if (x == 'y')
+                    home();
+                else
+                    return;
+                break;
+            }
+            case 5:
+            {
+                cout << "--------------------------^-^------------------------------\n";
+                cout << "Nhap chuc vu can tim: ";
+                string y;
+                cin.ignore(1);
+                getline(cin, y);
+                search(y);
+                cout << "\t--------------------------^-^------------------------------\n";
+                cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
+                char x;
+                cin >> x;
+                if (x == 'y')
+                    home();
+                else
+                    return;
+                break;
+            }
+            case 6:
+            {
+                cout << "--------------------------^-^------------------------------\n";
+                cout << "Nhap he so luong va phong ban can can tim: ";
+                string z;
+                float y;
+                cin >> y;
+                cin.ignore(1);
+                getline(cin, z);
+                search(y, z);
+                cout << "--------------------------^-^------------------------------\n";
+                cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
+                char x;
+                cin >> x;
+                if (x == 'y')
+                    home();
+                else
+                    return;
+                break;
+            }
+            case 7:
+                return;
+            default:
+            {
+                cout << "Thao tac khong hop le!\nBan co muon tiep tuc.\n'y' de tiep tuc hoac 'n' de tu choi: ";
+                char x;
+                cin >> x;
+                if (x == 'y')
+                    home();
+                else
+                    return;
+                break;
+            }
+            }
+        }
+    }
+    void end_task()
+    {
+        cout << "\t\t    __        __" << endl;
+        cout << "\t\t ********  ********" << endl;
+        cout << "\t\t****____________****" << endl;
+        cout << "\t\t****| Goodbye! |***" << endl;
+        cout << "\t\t ***------------**" << endl;
+        cout << "\t\t   *************" << endl;
+        cout << "\t\t      *******" << endl;
+        cout << "\t\t         *" << endl;
     }
 };
 #endif
