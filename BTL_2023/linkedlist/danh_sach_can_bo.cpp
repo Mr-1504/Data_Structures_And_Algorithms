@@ -14,19 +14,24 @@ public:
     {
         this->a = a;
     }
-    void create_list()
+    bool create_list()
     {
-        cout << "Tao danh sach can bo\n";
+        cout << "\nTao danh sach can bo\nLuu y nhap ma can bo nho hon 1 de dung!\n\n";
         int i = 0;
+        bool x;
         while (1)
         {
             cout << "Nhap thong tin can bo thu " << ++i << endl;
             can_bo temp;
-            if (!temp.input())
+            x = temp.input();
+            if (!x)
                 break;
             a.push_back(temp);
         }
-        // sort();
+        if (i == 1 && !x)
+            return true;
+        else
+            return false;
     }
     void add()
     {
@@ -167,10 +172,9 @@ public:
             {
             case 1:
             {
-                cout << "--------------------------^-^------------------------------\n";
-                create_list();
-                cnt = false;
-                cout << "Tao moi hoan tat!\n";
+                cout << "\n--------------------------^-^------------------------------\n";
+                cnt = create_list();
+                cout << "\nTao moi hoan tat!\n\n";
                 cout << "--------------------------^-^------------------------------\n";
                 cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
                 char x;
@@ -214,18 +218,24 @@ public:
             {
             case 1:
             {
-                cout << "--------------------------^-^------------------------------\n";
-                create_list();
-                cnt = false;
-                cout << "Tao moi hoan tat!\n";
-                cout << "--------------------------^-^------------------------------\n";
-                cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
+                cout << "\n--------------------------^-^------------------------------\n";
+                cout << "Luu y! Viec tao moi se xoa di danh sach dang co.\n";
+                cout << "Nhap 'y' de xac nhan hoac 'n' de quay lai: ";
+                cout << endl;
                 char x;
                 cin >> x;
                 if (x == 'y')
-                    home();
-                else
-                    return;
+                {
+                    cnt = create_list();
+                    cout << "\nTao moi hoan tat!\n";
+                    cout << "--------------------------^-^------------------------------\n";
+                    cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
+                    cin >> x;
+                    if (x == 'y')
+                        home();
+                    else
+                        return;
+                }else home();
                 break;
             }
             case 2:
