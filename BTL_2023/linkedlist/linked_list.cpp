@@ -18,6 +18,8 @@ public:
     bool empty() { return num == 0; }
     T &front() { return head->getE(); }
     T &back() { return end->getE(); }
+    iter<T> dau() { return head; }
+    iter<T> cuoi() { return end; }
     void push_front(T x)
     {
         node<T> *temp = new node<T>;
@@ -85,7 +87,5 @@ public:
             erase(temp);
         }
     }
-    iter<T> dau() { return head; }
-    iter<T> cuoi() { return end; }
 };
 #endif

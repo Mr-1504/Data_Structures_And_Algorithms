@@ -4,7 +4,7 @@
 using namespace std;
 class can_bo
 {
-    int macb;
+    int id;
     string ho, ten, ban, cvu;
     float hsl;
     long long luong;
@@ -14,9 +14,9 @@ class can_bo
     }
 
 public:
-    can_bo(int macb = 0, string ho = "", string ten = "", string ban = "", string cvu = "", float hsl = 0)
+    can_bo(int id = 0, string ho = "", string ten = "", string ban = "", string cvu = "", float hsl = 0)
     {
-        this->macb = macb;
+        this->id = id;
         this->ho = ho;
         this->ten = ten;
         this->ban = ban;
@@ -26,7 +26,7 @@ public:
     }
     can_bo(const can_bo &x)
     {
-        this->macb = x.macb;
+        this->id = x.id;
         this->ho = x.ho;
         this->ten = x.ten;
         this->ban = x.ban;
@@ -36,7 +36,7 @@ public:
     }
     can_bo &operator=(const can_bo &x)
     {
-        this->macb = x.macb;
+        this->id = x.id;
         this->ho = x.ho;
         this->ten = x.ten;
         this->ban = x.ban;
@@ -48,8 +48,8 @@ public:
     bool input()
     {
         cout << "\tNhap ma can bo: ";
-        cin >> macb;
-        if (macb <= 0)
+        cin >> id;
+        if (id <= 0)
             return false;
         cin.ignore(1);
         cout << "\tNhap ho ten can bo: ";
@@ -83,7 +83,7 @@ public:
     friend istream &operator>>(istream &cin, can_bo &x)
     {
         cout << "\tNhap ma can bo: ";
-        cin >> x.macb;
+        cin >> x.id;
         cin.ignore(1);
         cout << "\tNhap ho ten can bo: ";
         string temp;
@@ -115,7 +115,7 @@ public:
     }
     friend ostream &operator<<(ostream &cout, const can_bo &x)
     {
-        cout << "\tMa can bo: " << x.macb << endl;
+        cout << "\tMa can bo: " << x.id << endl;
         cout << "\tHo ten can bo: " << x.ho << " " << x.ten << endl;
         cout << "\tPhong ban: " << x.ban << endl;
         cout << "\tChuc vu: " << x.cvu << endl;
@@ -123,7 +123,7 @@ public:
         cout << "\tLuong: " << x.luong << endl;
         return cout;
     }
-    int ma_can_bo() { return macb; }
+    int ma_can_bo() { return id; }
     string ho_ten()
     {
         string temp = ho + " " + ten;

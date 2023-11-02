@@ -35,6 +35,7 @@ public:
     }
     void add()
     {
+        cout << "Hien tai danh sach co " << a.size() << " can bo.\n";
         cout << "Ban muon chon vi tri se them?\n";
         cout << "\t1. Chon vi tri.\n";
         cout << "\t2. Khong chon\n";
@@ -47,6 +48,11 @@ public:
             cout << "\tChon vi tri muon them: ";
             int n;
             cin >> n;
+            while (n < 1 || n > a.size() + 1)
+            {
+                cout << "Khong hop le, vui long nhap lai: ";
+                cin >> n;
+            }
             can_bo temp;
             cin >> temp;
             if (n == 1)
@@ -80,8 +86,8 @@ public:
         {
             for (iter<can_bo> j = i; j != nullptr; j++)
             {
-                can_bo X = i.getnode()->getE();
-                can_bo Y = j.getnode()->getE();
+                can_bo X = *i;
+                can_bo Y = *j;
                 if (X.Ten() > Y.Ten() || (X.Ten() == Y.Ten() && X.Ho() > Y.Ho()))
                 {
                     j.getnode()->setE(X);
@@ -96,7 +102,7 @@ public:
         int j = 0;
         for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
-            can_bo temp = i.getnode()->getE();
+            can_bo temp = *i;
             if (temp.he_so_luong() >= 4.4)
             {
                 if (!j)
@@ -110,11 +116,10 @@ public:
     }
     void _display()
     {
-        sort();
         int j = 0;
         for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
-            can_bo temp = i.getnode()->getE();
+            can_bo temp = *i;
             cout << ++j << ". " << temp << endl;
         }
         return;
@@ -125,7 +130,7 @@ public:
         int j = 0;
         for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
-            can_bo temp = i.getnode()->getE();
+            can_bo temp = *i;
             if (temp.chuc_vu() == cvu)
             {
                 if (!j)
@@ -143,7 +148,7 @@ public:
         int j = 0;
         for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
-            can_bo temp = i.getnode()->getE();
+            can_bo temp = *i;
             if (temp.he_so_luong() == hsl && temp.phong_ban() == phong)
             {
                 if (!j)
@@ -181,8 +186,18 @@ public:
                 cin >> x;
                 if (x == 'y')
                     home();
-                else
+                else if (x == 'n')
                     return;
+                else
+                    while (x != 'y' && x != 'n')
+                    {
+                        cout << "\nKhong hop le, vui long nhap lai: ";
+                        cin >> x;
+                    }
+                    if (x == 'y')
+                        home();
+                    else if (x == 'n')
+                        return;
                 break;
             }
             case 2:
@@ -209,7 +224,8 @@ public:
             cout << "\t|\t4. Thong ke can bo co he so luong tren 4.4.       |\n";
             cout << "\t|\t5. Loc theo chuc vu.                              |\n";
             cout << "\t|\t6. Loc theo he so luong va phong ban.             |\n";
-            cout << "\t|\t7. Thoat chuong trinh.                            |\n";
+            cout << "\t|\t7. Sap xep danh sach.                             |\n";
+            cout << "\t|\t8. Thoat chuong trinh.                            |\n";
             cout << "\t-----------------------------------------------------------\n";
             int n;
             cout << "Chon tac vu mong muon: ";
@@ -235,72 +251,114 @@ public:
                         home();
                     else
                         return;
-                }else home();
+                }
+                else
+                    home();
                 break;
             }
             case 2:
             {
-                cout << "--------------------------^-^------------------------------\n";
+                cout << "\n--------------------------^-^------------------------------\n";
                 add();
-                cout << "--------------------------^-^------------------------------\n";
+                cout << "\n--------------------------^-^------------------------------\n";
                 cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
                 char x;
                 cin >> x;
                 if (x == 'y')
                     home();
-                else
+                else if (x == 'n')
                     return;
+                else
+                    while (x != 'y' && x != 'n')
+                    {
+                        cout << "\nKhong hop le, vui long nhap lai: ";
+                        cin >> x;
+                    }
+                    if (x == 'y')
+                        home();
+                    else if (x == 'n')
+                        return;
                 break;
             }
             case 3:
             {
-                cout << "--------------------------^-^------------------------------\n";
+                cout << "\n--------------------------^-^------------------------------\n";
                 _display();
-                cout << "--------------------------^-^------------------------------\n";
+                cout << "\n--------------------------^-^------------------------------\n";
                 cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
                 char x;
                 cin >> x;
                 if (x == 'y')
                     home();
-                else
+                else if (x == 'n')
                     return;
+                else
+                    while (x != 'y' && x != 'n')
+                    {
+                        cout << "\nKhong hop le, vui long nhap lai: ";
+                        cin >> x;
+                    }
+                    if (x == 'y')
+                        home();
+                    else if (x == 'n')
+                        return;
                 break;
             }
             case 4:
             {
-                cout << "--------------------------^-^------------------------------\n";
+                cout << "\n--------------------------^-^------------------------------\n";
                 display();
-                cout << "--------------------------^-^------------------------------\n";
+                cout << "\n--------------------------^-^------------------------------\n";
                 cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
                 char x;
                 cin >> x;
                 if (x == 'y')
                     home();
-                else
+                else if (x == 'n')
                     return;
+                else
+                    while (x != 'y' && x != 'n')
+                    {
+                        cout << "\nKhong hop le, vui long nhap lai: ";
+                        cin >> x;
+                    }
+                    if (x == 'y')
+                        home();
+                    else if (x == 'n')
+                        return;
                 break;
             }
             case 5:
             {
-                cout << "--------------------------^-^------------------------------\n";
+                cout << "\n--------------------------^-^------------------------------\n";
                 cout << "Nhap chuc vu can tim: ";
                 string y;
                 cin.ignore(1);
                 getline(cin, y);
                 search(y);
-                cout << "\t--------------------------^-^------------------------------\n";
+                cout << "\n\t--------------------------^-^------------------------------\n";
                 cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
                 char x;
                 cin >> x;
                 if (x == 'y')
                     home();
-                else
+                else if (x == 'n')
                     return;
+                else
+                    while (x != 'y' && x != 'n')
+                    {
+                        cout << "\nKhong hop le, vui long nhap lai: ";
+                        cin >> x;
+                    }
+                    if (x == 'y')
+                        home();
+                    else if (x == 'n')
+                        return;
                 break;
             }
             case 6:
             {
-                cout << "--------------------------^-^------------------------------\n";
+                cout << "\n--------------------------^-^------------------------------\n";
                 cout << "Nhap he so luong va phong ban can can tim: ";
                 string z;
                 float y;
@@ -308,17 +366,58 @@ public:
                 cin.ignore(1);
                 getline(cin, z);
                 search(y, z);
-                cout << "--------------------------^-^------------------------------\n";
+                cout << "\n--------------------------^-^------------------------------\n";
                 cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
                 char x;
                 cin >> x;
                 if (x == 'y')
                     home();
-                else
+                else if (x == 'n')
                     return;
+                else
+                {
+                    while (x != 'y' && x != 'n')
+                    {
+                        cout << "\nKhong hop le, vui long nhap lai: ";
+                        cin >> x;
+                    }
+                    if (x == 'y')
+                        home();
+                    else if (x == 'n')
+                        return;
+                    if (x == 'y')
+                        home();
+                    else if (x == 'n')
+                        return;
+                }
                 break;
             }
             case 7:
+            {
+                cout << "\n--------------------------^-^------------------------------\n";
+                cout << "Sap xep thanh cong!\n";
+                sort();
+                _display();
+                cout << "\nNhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
+                char x;
+                cin >> x;
+                if (x == 'y')
+                    home();
+                else if (x == 'n')
+                    return;
+                else
+                    while (x != 'y' && x != 'n')
+                    {
+                        cout << "\nKhong hop le, vui long nhap lai: ";
+                        cin >> x;
+                    }
+                    if (x == 'y')
+                        home();
+                    else if (x == 'n')
+                        return;
+                break;
+            }
+            case 8:
                 return;
             default:
             {
