@@ -46,11 +46,11 @@ public:
             {
                 this->trongso[i * x.n + j] = x.trongso[i * x.n + j];
             }
-            node<int> *temp = x.a[i].dau().getnode()->getNext();
+            iter<int> temp = x.a[i].dau();
             while (temp != nullptr)
             {
-                this->a[i].push_back(temp->getE());
-                temp = temp->getNext();
+                this->a[i].push_back(*temp);
+                temp++;
             }
         }
         return *this;
@@ -125,23 +125,24 @@ public:
         cout << "Số đỉnh: " << x._n << endl;
         for (int i = 0; i < x.n; i++)
         {
-            node<int> *temp = x.a[i].dau().getnode()->getNext();
-            if (temp == nullptr)
-                continue;
-            cout << "Đỉnh " << x.a[i].front() << " kết nối với:\n";
-            int j = x.a[i].front();
-            while (temp != nullptr)
+            iter<int> temp = x.a[i].dau();
+            if (temp != nullptr)
             {
-                int k = temp->getE();
-                if (!tmp[j * x.n + k])
+                cout << "Đỉnh " << x.a[i].front() << " kết nối với:\n";
+                int j = x.a[i].front();
+                while (temp != nullptr)
                 {
-                    tmp[j * x.n + k] = 1;
-                    cout << "\tĐỉnh " << k << " có trọng số " << x.trongso[j * x.n + k] << endl;
+                    int k = *temp;
+                    if (!tmp[j * x.n + k])
+                    {
+                        tmp[j * x.n + k] = 1;
+                        cout << "\tĐỉnh " << k << " có trọng số " << x.trongso[j * x.n + k] << endl;
+                    }
+                    temp++;
                 }
-                temp = temp->getNext();
+                cout << endl;
             }
         }
-        cout << endl;
         return cout;
     }
     friend ostream &operator<<(ostream &cout, const Graph &x)
@@ -150,52 +151,54 @@ public:
         cout << "So dinh: " << x.n << endl;
         for (int i = 0; i < x.n; i++)
         {
-            node<int> *temp = x.a[i].dau().getnode()->getNext();
-            if (temp == nullptr)
-                continue;
-            cout << "Dinh " << x.a[i].front() << " ket noi voi:\n";
-            int j = x.a[i].front();
-            while (temp != nullptr)
+            iter<int> temp = x.a[i].dau();
+            if (temp != nullptr)
             {
-                int k = temp->getE();
-                if (!tmp[j * x.n + k])
+                cout << "Dinh " << x.a[i].front() << " ket noi voi:\n";
+                int j = x.a[i].front();
+                while (temp != nullptr)
                 {
-                    tmp[j * x.n + k] = 1;
-                    cout << "\tDinh " << k << " co trong so " << x.trongso[j * x.n + k] << endl;
+                    int k = *temp;
+                    if (!tmp[j * x.n + k])
+                    {
+                        tmp[j * x.n + k] = 1;
+                        cout << "\tDinh " << k << " co trong so " << x.trongso[j * x.n + k] << endl;
+                    }
+                    temp++;
                 }
-                temp = temp->getNext();
+
+                cout << endl;
             }
         }
-        cout << endl;
         return cout;
     }
     void _dfs(int u, int t[])
     {
         t[u] = 1;
-        node<int> *temp = a[u].dau().getnode()->getNext();
+        iter<int> temp = a[u].dau();
         while (temp != nullptr)
         {
-            int v = temp->getE();
+            int v = *temp;
             if (!t[v])
             {
                 _dfs(v, t);
             }
-            temp = temp->getNext();
+            temp++;
         }
     }
     void DFS(int u, int t[])
     {
         cout << u << " ";
         t[u] = 1;
-        node<int> *temp = a[u].dau().getnode()->getNext();
+        iter<int> temp = a[u].dau();
         while (temp != nullptr)
         {
-            int v = temp->getE();
+            int v = *temp;
             if (!t[v])
             {
                 DFS(v, t);
             }
-            temp = temp->getNext();
+            temp++;
         }
     }
     void _bfs(int u, int t[], int _t[], int &j, ofstream &output)
@@ -208,10 +211,10 @@ public:
             int k = c.front();
             c.pop();
             t[k] = 1;
-            node<int> *temp = a[k].dau().getnode()->getNext();
+            iter<int> temp = a[k].dau();
             while (temp != nullptr)
             {
-                int v = temp->getE();
+                int v = *temp;
                 if (!t[v] && !_t[k * n + v])
                 {
                     if (cnt)
@@ -225,7 +228,7 @@ public:
                     c.push(v);
                     _t[k * n + v] = 1;
                 }
-                temp = temp->getNext();
+                temp++;
             }
         }
     }
@@ -243,18 +246,19 @@ public:
                 if (!t[k])
                     cout << k << " ";
                 t[k] = 1;
-                node<int> *temp = a[k].dau().getnode()->getNext();
+                iter<int> temp = a[k].dau();
                 while (temp != nullptr)
                 {
-                    int v = temp->getE();
+                    int v = *temp;
                     if (!t[v])
                     {
                         c.push(v);
                     }
-                    temp = temp->getNext();
+                    temp++;
                 }
             }
-        }else 
+        }
+        else
             cout << "Do thi khong lien thong.\nHuy lenh BFS!\n";
     }
     void _DFS()
@@ -263,7 +267,8 @@ public:
         {
             int t[n + 1] = {0};
             DFS(1, t);
-        }else 
+        }
+        else
             cout << "Do thi khong lien thong.\nHuy lenh DFS!\n";
     }
     int _dem_lien_thong()
@@ -271,7 +276,8 @@ public:
         int t[n + 1] = {0}, res = 0;
         for (int i = 1; i < n; i++)
         {
-            node<int> *temp = a[i].dau().getnode()->getNext();
+            iter<int> temp = a[i].dau();
+            temp++;
             if (!t[i] && temp != nullptr)
             {
                 res++;
@@ -309,10 +315,10 @@ public:
                 int kc = top.first;
                 if (kc > d[u])
                     continue;
-                node<int> *temp = a[u].dau().getnode()->getNext();
+                iter<int> temp = a[u].dau();
                 while (temp != nullptr)
                 {
-                    int v = temp->getE();
+                    int v = *temp;
                     int w = trongso[u * n + v];
                     if (d[v] > d[u] + w)
                     {
@@ -320,10 +326,10 @@ public:
                         d[v] = d[u] + w;
                         q.push({d[v], v});
                     }
-                    temp = temp->getNext();
+                    temp++;
                 }
             }
-            cout << "Duong di ngan nhat tu dinh " << dau <<" den dinh " << cuoi <<" la: ";
+            cout << "Duong di ngan nhat tu dinh " << dau << " den dinh " << cuoi << " la: ";
             vector<int> _res;
             _res.push_back(cuoi);
             int k = res[cuoi];
@@ -336,7 +342,8 @@ public:
             for (int i = _res.size() - 1; i >= 0; i--)
                 cout << _res[i] << " ";
             cout << "\nKhoang cach giua hai dinh la: " << d[cuoi] << endl;
-        }else 
+        }
+        else
             cout << "Do thi khong lien thong.\nHuy lenh tim kiem!\n";
     }
 };

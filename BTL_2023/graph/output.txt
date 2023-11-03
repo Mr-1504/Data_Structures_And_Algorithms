@@ -1,28 +1,49 @@
 Số đỉnh: 9
+Đỉnh 0 kết nối với:
+	Đỉnh 0 có trọng số 0
+
 Đỉnh 1 kết nối với:
+	Đỉnh 1 có trọng số 0
 	Đỉnh 2 có trọng số 1
 	Đỉnh 3 có trọng số 4
+
 Đỉnh 2 kết nối với:
+	Đỉnh 2 có trọng số 0
 	Đỉnh 1 có trọng số 1
 	Đỉnh 3 có trọng số 1
 	Đỉnh 7 có trọng số 18
+
 Đỉnh 3 kết nối với:
+	Đỉnh 3 có trọng số 0
 	Đỉnh 2 có trọng số 1
 	Đỉnh 1 có trọng số 4
 	Đỉnh 5 có trọng số 5
+
+Đỉnh 4 kết nối với:
+	Đỉnh 4 có trọng số 0
+
 Đỉnh 5 kết nối với:
+	Đỉnh 5 có trọng số 0
 	Đỉnh 3 có trọng số 5
 	Đỉnh 6 có trọng số 10
+
 Đỉnh 6 kết nối với:
+	Đỉnh 6 có trọng số 0
 	Đỉnh 5 có trọng số 10
 	Đỉnh 7 có trọng số 1
+
 Đỉnh 7 kết nối với:
+	Đỉnh 7 có trọng số 0
 	Đỉnh 6 có trọng số 1
 	Đỉnh 9 có trọng số 2
 	Đỉnh 2 có trọng số 18
+
 Đỉnh 8 kết nối với:
+	Đỉnh 8 có trọng số 0
 	Đỉnh 9 có trọng số 1
+
 Đỉnh 9 kết nối với:
+	Đỉnh 9 có trọng số 0
 	Đỉnh 7 có trọng số 2
 	Đỉnh 8 có trọng số 1
 
