@@ -24,7 +24,7 @@ public:
     }
     iter<T> operator++(int)
     {
-        node<T> *temp = a;
+        iter<T> temp = *this;
         a = a->getNext();
         return temp;
     }

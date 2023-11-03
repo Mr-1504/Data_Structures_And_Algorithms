@@ -276,8 +276,7 @@ public:
         int t[n + 1] = {0}, res = 0;
         for (int i = 1; i < n; i++)
         {
-            iter<int> temp = a[i].dau();
-            temp++;
+            iter<int> temp = a[i].dau().getnode()->getNext();
             if (!t[i] && temp != nullptr)
             {
                 res++;
