@@ -96,18 +96,32 @@ public:
             }
         }
     }
+    // void _sort()
+    // {
+    //     for (iter<can_bo> i = a.dau(); i != nullptr; i++)
+    //     {
+    //         for (iter<can_bo> j = i; j != nullptr; j++)
+    //         {
+    //             can_bo X = *i;
+    //             can_bo Y = *j;
+    //             if (X.he_so_luong() < Y.he_so_luong())
+    //             {
+    //                 j.getnode()->setE(X);
+    //                 i.getnode()->setE(Y);
+    //             }
+    //         }
+    //     }
+    // }
     void display()
     {
-        sort();
         int j = 0;
         for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
-            can_bo temp = *i;
-            if (temp.he_so_luong() >= 4.4)
+            if ((*i).he_so_luong() >= 4.4)
             {
                 if (!j)
                     cout << "Danh sach cac can bo co he so luong tren 4.4 la:\n";
-                cout << ++j << ". " << temp << endl;
+                cout << ++j << ". " << *i << endl;
             }
         }
         if (!j)
@@ -119,23 +133,20 @@ public:
         int j = 0;
         for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
-            can_bo temp = *i;
-            cout << ++j << ". " << temp << endl;
+            cout << ++j << ". " << *i << endl;
         }
         return;
     }
     void search(string cvu)
     {
-        sort();
         int j = 0;
         for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
-            can_bo temp = *i;
-            if (temp.chuc_vu() == cvu)
+            if ((*i).chuc_vu() == cvu)
             {
                 if (!j)
                     cout << "Danh sach cac can bo co chuc vu " << cvu << " la" << endl;
-                cout << ++j << ". " << temp << endl;
+                cout << ++j << ". " << *i << endl;
             }
         }
         if (!j)
@@ -144,16 +155,14 @@ public:
     }
     void search(float hsl, string phong)
     {
-        sort();
         int j = 0;
         for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
-            can_bo temp = *i;
-            if (temp.he_so_luong() == hsl && temp.phong_ban() == phong)
+            if ((*i).he_so_luong() == hsl && (*i).phong_ban() == phong)
             {
                 if (!j)
                     cout << "Danh sach cac can bo co he so luong tren 4.4 o phong ban " << phong << "la:\n";
-                cout << ++j << ". " << temp << endl;
+                cout << ++j << ". " << *i << endl;
             }
         }
         if (!j)
@@ -194,10 +203,10 @@ public:
                         cout << "\nKhong hop le, vui long nhap lai: ";
                         cin >> x;
                     }
-                    if (x == 'y')
-                        home();
-                    else if (x == 'n')
-                        return;
+                if (x == 'y')
+                    home();
+                else if (x == 'n')
+                    return;
                 break;
             }
             case 2:
@@ -274,10 +283,10 @@ public:
                         cout << "\nKhong hop le, vui long nhap lai: ";
                         cin >> x;
                     }
-                    if (x == 'y')
-                        home();
-                    else if (x == 'n')
-                        return;
+                if (x == 'y')
+                    home();
+                else if (x == 'n')
+                    return;
                 break;
             }
             case 3:
@@ -298,10 +307,10 @@ public:
                         cout << "\nKhong hop le, vui long nhap lai: ";
                         cin >> x;
                     }
-                    if (x == 'y')
-                        home();
-                    else if (x == 'n')
-                        return;
+                if (x == 'y')
+                    home();
+                else if (x == 'n')
+                    return;
                 break;
             }
             case 4:
@@ -322,10 +331,10 @@ public:
                         cout << "\nKhong hop le, vui long nhap lai: ";
                         cin >> x;
                     }
-                    if (x == 'y')
-                        home();
-                    else if (x == 'n')
-                        return;
+                if (x == 'y')
+                    home();
+                else if (x == 'n')
+                    return;
                 break;
             }
             case 5:
@@ -350,10 +359,10 @@ public:
                         cout << "\nKhong hop le, vui long nhap lai: ";
                         cin >> x;
                     }
-                    if (x == 'y')
-                        home();
-                    else if (x == 'n')
-                        return;
+                if (x == 'y')
+                    home();
+                else if (x == 'n')
+                    return;
                 break;
             }
             case 6:
@@ -411,10 +420,10 @@ public:
                         cout << "\nKhong hop le, vui long nhap lai: ";
                         cin >> x;
                     }
-                    if (x == 'y')
-                        home();
-                    else if (x == 'n')
-                        return;
+                if (x == 'y')
+                    home();
+                else if (x == 'n')
+                    return;
                 break;
             }
             case 8:
