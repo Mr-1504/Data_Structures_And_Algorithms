@@ -14,6 +14,10 @@ public:
         head = end = nullptr;
         num = 0;
     }
+    ~Don_list(){
+        delete head;
+        delete end;
+    }
     int size() { return num; }
     bool empty() { return num == 0; }
     T &front() { return head->getE(); }

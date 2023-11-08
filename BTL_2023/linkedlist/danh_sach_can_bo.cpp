@@ -251,6 +251,8 @@ public:
                 cin >> x;
                 if (x == 'y')
                 {
+                    a.~Don_list();
+                    a  = Don_list<can_bo>();
                     cnt = create_list();
                     cout << "\nTao moi hoan tat!\n";
                     cout << "--------------------------^-^------------------------------\n";
