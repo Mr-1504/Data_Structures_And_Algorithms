@@ -7,7 +7,7 @@ class Graph
 {
     int n, m, _n;
     Don_list<int> *a;
-    int *trongso;
+    float *trongso;
 
 public:
     Graph()
@@ -23,7 +23,7 @@ public:
         this->m = m;
         this->n = n;
         this->a = new Don_list<int>[n];
-        this->trongso = new int[n * n];
+        this->trongso = new float[n * n];
         int j = 0;
         for (int i = 0; i < n; i++)
         {
@@ -39,7 +39,7 @@ public:
         this->m = x.m;
         this->n = x.n;
         this->a = new Don_list<int>[x.n];
-        this->trongso = new int[x.n * x.n];
+        this->trongso = new float[x.n * x.n];
         for (int i = 0; i < x.n; i++)
         {
             for (int j = 0; j < x.n; j++)
@@ -80,7 +80,7 @@ public:
         x.n++;
         int j = 0;
         x.a = new Don_list<int>[x.n];
-        x.trongso = new int[x.n * x.n];
+        x.trongso = new float[x.n * x.n];
         for (int i = 0; i < x.n; i++)
         {
             x.a[i].push_back(i);
@@ -106,7 +106,7 @@ public:
         x.n++;
         int j = 0;
         x.a = new Don_list<int>[x.n];
-        x.trongso = new int[x.n * x.n];
+        x.trongso = new float[x.n * x.n];
         for (int i = 0; i < x.n; i++)
         {
             x.a[i].push_back(i);
@@ -180,9 +180,7 @@ public:
         {
             int v = *temp;
             if (!t[v])
-            {
                 _dfs(v, t);
-            }
             temp++;
         }
     }
@@ -195,9 +193,7 @@ public:
         {
             int v = *temp;
             if (!t[v])
-            {
                 DFS(v, t);
-            }
             temp++;
         }
     }
@@ -251,9 +247,7 @@ public:
                 {
                     int v = *temp;
                     if (!t[v])
-                    {
                         c.push(v);
-                    }
                     temp++;
                 }
             }
@@ -302,23 +296,23 @@ public:
             cout << "Nhap dinh dau va cuoi: ";
             int dau, cuoi;
             cin >> dau >> cuoi;
-            vector<int> d(n, INT_MAX), res(n);
+            vector<float> d(n, INT_MAX), res(n);
             d[dau] = 0;
-            priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
+            priority_queue<pair<float, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
             q.push({0, dau});
             while (!q.empty())
             {
-                pair<int, int> top = q.top();
+                pair<float, int> top = q.top();
                 q.pop();
                 int u = top.second;
-                int kc = top.first;
-                if (kc > d[u])
-                    continue;
+                float kc = top.first;
+                // if (kc > d[u])
+                //     continue;
                 iter<int> temp = a[u].dau();
                 while (temp != nullptr)
                 {
                     int v = *temp;
-                    int w = trongso[u * n + v];
+                    float w = trongso[u * n + v];
                     if (d[v] > d[u] + w)
                     {
                         res[v] = u;
