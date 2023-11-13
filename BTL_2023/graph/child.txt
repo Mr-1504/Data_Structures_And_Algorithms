@@ -1,0 +1,9 @@
+
+Danh sach do thi con
+Do thi con thu 1
+	1 2
+	1 5
+	2 3
+	2 4
+	5 4
+	3 4

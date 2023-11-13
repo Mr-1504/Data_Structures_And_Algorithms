@@ -3,10 +3,11 @@
 #ifndef _danh_sach_cpp
 #define _danh_sach_cpp
 using namespace std;
-bool cnt = true;
+
 class list_cb
 {
     Don_list<can_bo> a;
+    bool cnt = true;
 
 public:
     list_cb() {}
@@ -40,6 +41,7 @@ public:
         cout << "\t1. Chon vi tri.\n";
         cout << "\t2. Khong chon\n";
         int t;
+        cout << "Tac vu: ";
         cin >> t;
         switch (t)
         {
@@ -169,6 +171,27 @@ public:
             cout << "Khong co can bo co he so luong " << hsl << " o phong " << phong << endl;
         return;
     }
+    bool confirm()
+    {
+        int tmp = 0;
+        while (tmp < 3)
+        {
+            cout << "Nhap y de quay lai hoac n de thoat: ";
+            char t;
+            cin >> t;
+            if (t == 'y')
+                return true;
+            else if (t == 'n')
+                return false;
+            else
+            {
+                cout << "\nThao tac khong hop le.\n";
+                tmp++;
+            }
+        }
+        cout << "Ban da nhap sai qua nhieu lan. Thoat chuong trinh.\n";
+        return false;
+    }
     void home()
     {
         if (cnt)
@@ -190,22 +213,9 @@ public:
                 cnt = create_list();
                 cout << "\nTao moi hoan tat!\n\n";
                 cout << "--------------------------^-^------------------------------\n";
-                cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
-                char x;
-                cin >> x;
-                if (x == 'y')
+                if (confirm())
                     home();
-                else if (x == 'n')
-                    return;
                 else
-                    while (x != 'y' && x != 'n')
-                    {
-                        cout << "\nKhong hop le, vui long nhap lai: ";
-                        cin >> x;
-                    }
-                if (x == 'y')
-                    home();
-                else if (x == 'n')
                     return;
                 break;
             }
@@ -213,10 +223,8 @@ public:
                 return;
             default:
             {
-                cout << "Thao tac khong hop le!\nBan co muon tiep tuc.\n'y' de tiep tuc hoac 'n' de tu choi: ";
-                char x;
-                cin >> x;
-                if (x == 'y')
+                cout << "Thao tac khong hop le!\n";
+                if (confirm())
                     home();
                 else
                     return;
@@ -248,17 +256,29 @@ public:
                 cout << "Nhap 'y' de xac nhan hoac 'n' de quay lai: ";
                 cout << endl;
                 char x;
-                cin >> x;
+                int tmp = 0;
+                while (tmp < 3)
+                {
+                    cin >> x;
+                    tmp++;
+                    if(x == 'y' || x == 'n')
+                        break;
+                    if(tmp ==3 ) {
+                        cout << "Nhap qua nhieu lan. Thoat chuong trinh.\n";
+                        return;
+                    }
+                    cout << "Thao tac khong hop le. Nhap lai: ";
+                }
+
                 if (x == 'y')
                 {
                     a.~Don_list();
-                    a  = Don_list<can_bo>();
+                    a = Don_list<can_bo>();
                     cnt = create_list();
                     cout << "\nTao moi hoan tat!\n";
                     cout << "--------------------------^-^------------------------------\n";
                     cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
-                    cin >> x;
-                    if (x == 'y')
+                    if (confirm())
                         home();
                     else
                         return;
@@ -272,22 +292,9 @@ public:
                 cout << "\n--------------------------^-^------------------------------\n";
                 add();
                 cout << "\n--------------------------^-^------------------------------\n";
-                cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
-                char x;
-                cin >> x;
-                if (x == 'y')
+                if (confirm())
                     home();
-                else if (x == 'n')
-                    return;
                 else
-                    while (x != 'y' && x != 'n')
-                    {
-                        cout << "\nKhong hop le, vui long nhap lai: ";
-                        cin >> x;
-                    }
-                if (x == 'y')
-                    home();
-                else if (x == 'n')
                     return;
                 break;
             }
@@ -296,22 +303,9 @@ public:
                 cout << "\n--------------------------^-^------------------------------\n";
                 _display();
                 cout << "\n--------------------------^-^------------------------------\n";
-                cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
-                char x;
-                cin >> x;
-                if (x == 'y')
+                if (confirm())
                     home();
-                else if (x == 'n')
-                    return;
                 else
-                    while (x != 'y' && x != 'n')
-                    {
-                        cout << "\nKhong hop le, vui long nhap lai: ";
-                        cin >> x;
-                    }
-                if (x == 'y')
-                    home();
-                else if (x == 'n')
                     return;
                 break;
             }
@@ -320,22 +314,9 @@ public:
                 cout << "\n--------------------------^-^------------------------------\n";
                 display();
                 cout << "\n--------------------------^-^------------------------------\n";
-                cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
-                char x;
-                cin >> x;
-                if (x == 'y')
+                if (confirm())
                     home();
-                else if (x == 'n')
-                    return;
                 else
-                    while (x != 'y' && x != 'n')
-                    {
-                        cout << "\nKhong hop le, vui long nhap lai: ";
-                        cin >> x;
-                    }
-                if (x == 'y')
-                    home();
-                else if (x == 'n')
                     return;
                 break;
             }
@@ -348,22 +329,9 @@ public:
                 getline(cin, y);
                 search(y);
                 cout << "\n\t--------------------------^-^------------------------------\n";
-                cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
-                char x;
-                cin >> x;
-                if (x == 'y')
+                if (confirm())
                     home();
-                else if (x == 'n')
-                    return;
                 else
-                    while (x != 'y' && x != 'n')
-                    {
-                        cout << "\nKhong hop le, vui long nhap lai: ";
-                        cin >> x;
-                    }
-                if (x == 'y')
-                    home();
-                else if (x == 'n')
                     return;
                 break;
             }
@@ -378,29 +346,10 @@ public:
                 getline(cin, z);
                 search(y, z);
                 cout << "\n--------------------------^-^------------------------------\n";
-                cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
-                char x;
-                cin >> x;
-                if (x == 'y')
+                if (confirm())
                     home();
-                else if (x == 'n')
-                    return;
                 else
-                {
-                    while (x != 'y' && x != 'n')
-                    {
-                        cout << "\nKhong hop le, vui long nhap lai: ";
-                        cin >> x;
-                    }
-                    if (x == 'y')
-                        home();
-                    else if (x == 'n')
-                        return;
-                    if (x == 'y')
-                        home();
-                    else if (x == 'n')
-                        return;
-                }
+                    return;
                 break;
             }
             case 7:
@@ -409,22 +358,9 @@ public:
                 cout << "Sap xep thanh cong!\n";
                 sort();
                 _display();
-                cout << "\nNhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
-                char x;
-                cin >> x;
-                if (x == 'y')
+                if (confirm())
                     home();
-                else if (x == 'n')
-                    return;
                 else
-                    while (x != 'y' && x != 'n')
-                    {
-                        cout << "\nKhong hop le, vui long nhap lai: ";
-                        cin >> x;
-                    }
-                if (x == 'y')
-                    home();
-                else if (x == 'n')
                     return;
                 break;
             }
@@ -432,10 +368,8 @@ public:
                 return;
             default:
             {
-                cout << "Thao tac khong hop le!\nBan co muon tiep tuc.\n'y' de tiep tuc hoac 'n' de tu choi: ";
-                char x;
-                cin >> x;
-                if (x == 'y')
+                cout << "Thao tac khong hop le!\n";
+                if (confirm())
                     home();
                 else
                     return;
