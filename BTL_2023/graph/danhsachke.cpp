@@ -278,45 +278,50 @@ public:
         cout << "Nhap dinh dau va cuoi: ";
         int dau, cuoi;
         cin >> dau >> cuoi;
-        vector<float> d(n, INT_MAX), res(n);
-        d[dau] = 0;
-        priority_queue<pair<float, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
-        q.push({0, dau});
-        while (!q.empty())
+        if (a[dau].dau() != nullptr && a[cuoi].dau() != nullptr)
         {
-            pair<float, int> top = q.top();
-            q.pop();
-            int u = top.second;
-            float kc = top.first;
-            // if (kc > d[u])
-            //     continue;
-            iter<pair<int, float>> temp = a[u].dau();
-            while (temp != nullptr)
+            vector<float> d(n, INT_MAX), res(n);
+            d[dau] = 0;
+            priority_queue<pair<float, int>, vector<pair<float, int>>, greater<pair<float, int>>> q;
+            q.push({0, dau});
+            while (!q.empty())
             {
-                int v = (*temp).first;
-                float w = (*temp).second;
-                if (d[v] > d[u] + w)
+                pair<float, int> top = q.top();
+                q.pop();
+                int u = top.second;
+                float kc = top.first;
+                // if (kc > d[u])
+                //     continue;
+                iter<pair<int, float>> temp = a[u].dau();
+                while (temp != nullptr)
                 {
-                    res[v] = u;
-                    d[v] = d[u] + w;
-                    q.push({d[v], v});
+                    int v = (*temp).first;
+                    float w = (*temp).second;
+                    if (d[v] > d[u] + w)
+                    {
+                        res[v] = u;
+                        d[v] = d[u] + w;
+                        q.push({d[v], v});
+                    }
+                    temp++;
                 }
-                temp++;
             }
+            cout << "Duong di ngan nhat tu dinh " << dau << " den dinh " << cuoi << " la: ";
+            vector<int> _res;
+            _res.push_back(cuoi);
+            int k = res[cuoi];
+            while (k != dau)
+            {
+                _res.push_back(k);
+                k = res[k];
+            }
+            _res.push_back(dau);
+            for (int i = _res.size() - 1; i >= 0; i--)
+                cout << _res[i] << " ";
+            cout << "\nKhoang cach giua hai dinh la: " << d[cuoi] << endl;
         }
-        cout << "Duong di ngan nhat tu dinh " << dau << " den dinh " << cuoi << " la: ";
-        vector<int> _res;
-        _res.push_back(cuoi);
-        int k = res[cuoi];
-        while (k != dau)
-        {
-            _res.push_back(k);
-            k = res[k];
-        }
-        _res.push_back(dau);
-        for (int i = _res.size() - 1; i >= 0; i--)
-            cout << _res[i] << " ";
-        cout << "\nKhoang cach giua hai dinh la: " << d[cuoi] << endl;
+        else
+            cout << "Dinh dau hoac cuoi khong hop le!\n";
     }
     void input_Gr(ofstream &output)
     {
@@ -449,9 +454,10 @@ public:
                 {
                     cin >> t;
                     tmp++;
-                    if(t == 'y' || t == 'n')
+                    if (t == 'y' || t == 'n')
                         break;
-                    if(tmp ==3 ) {
+                    if (tmp == 3)
+                    {
                         cout << "Nhap qua nhieu lan. Thoat chuong trinh.\n";
                         return;
                     }
