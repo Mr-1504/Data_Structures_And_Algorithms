@@ -80,32 +80,7 @@ public:
         cout << "Doc thanh cong!\n";
         return cin;
     }
-    // friend istream &operator>>(istream &cin, Graph &x)
-    // {
-    //     cin >> x._n >> x.m;
-    //     int tmp[x.m][2], tso[x.m];
-    //     for (int i = 0; i < x.m; i++)
-    //     {
-    //         cin >> tmp[i][0] >> tmp[i][1] >> tso[i];
-    //         x.n = max(tmp[i][0], max(tmp[i][1], x.n));
-    //     }
 
-    //     x.n++;
-    //     int j = 0;
-    //     x.a = new Don_list<int>[x.n];
-    //     x.trongso = new float[x.n * x.n];
-    //     for (int i = 0; i < x.n; i++)
-    //     {
-    //         x.a[i].push_back(i);
-    //         x.trongso[i * x.n + j++] = 0;
-    //     }
-    //     for (int i = 0; i < x.m; i++)
-    //     {
-    //         x.add(tmp[i][0], tmp[i][1], tso[i]);
-    //     }
-    //     cout << "Doc thanh cong!\n";
-    //     return cin;
-    // }
     friend ofstream &operator<<(ofstream &cout, const Graph &x)
     {
         int tmp[x.n * x.n] = {0};
