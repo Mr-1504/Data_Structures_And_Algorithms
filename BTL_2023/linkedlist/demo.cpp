@@ -1,8 +1,8 @@
-#include "danh_sach_can_bo.cpp"
+#include "app_cb.cpp"
 using namespace std;
 int main()
 {
-    list_cb a;
+    app a;
     a.home();
     a.end_task();
     return 0;

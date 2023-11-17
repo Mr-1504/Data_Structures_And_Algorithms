@@ -1,8 +1,8 @@
-#include "danhsachke.cpp"
+#include "app_graph.cpp"
 using namespace std;
 int main()
 {
-    Graph a;
+    app a;
     a.home();
     a.end_task();
 }
