@@ -34,6 +34,7 @@ public:
 
     void home(string input = "input.txt", string output = "output.txt", string child = "child.txt")
     {
+        system("cls");
         if (cnt)
         {
             cout << "\t---------------------^-^---------------------\n";
@@ -49,6 +50,7 @@ public:
             {
             case 1:
             {
+                system("cls");
                 cout << "\n--------^-^--------\n";
                 ifstream inp(input);
                 inp >> a;
@@ -64,6 +66,7 @@ public:
             }
             case 2:
             {
+                system("cls");
                 cout << "\n--------^-^--------\n";
                 ofstream out(input);
                 a.input_Gr(out);
@@ -82,6 +85,7 @@ public:
             }
             default:
             {
+                system("cls");
                 cout << "\n --------^-^--------\n";
                 cout << "Thao tac khong hop le!\n";
                 cout << "\n-----------------------------------\n";
@@ -115,6 +119,7 @@ public:
             {
             case 1:
             {
+                system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
                 char t;
                 cout << "Nhap vao do thi moi se xoa di do thi cu.\n";
@@ -135,6 +140,7 @@ public:
                 }
                 if (t == 'n')
                     home(input, output, child);
+                system("cls");
                 ofstream out(input);
                 a.input_Gr(out);
                 out.close();
@@ -152,6 +158,7 @@ public:
             }
             case 2:
             {
+                system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
                 ofstream out(output);
                 out << a;
@@ -167,6 +174,7 @@ public:
             }
             case 3:
             {
+                system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
                 ofstream ch(child);
                 a.con(ch);
@@ -181,6 +189,7 @@ public:
             }
             case 4:
             {
+                system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
                 if (a._dem_lien_thong() == 1)
                 {
@@ -200,6 +209,7 @@ public:
             }
             case 5:
             {
+                system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
                 cout << "Ket qua: ";
                 a._DFS();
@@ -213,6 +223,7 @@ public:
             }
             case 6:
             {
+                system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
                 if (a._dem_lien_thong() == 1)
                 {
@@ -232,6 +243,8 @@ public:
             case 7:
                 return;
             default:
+            {
+                system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
                 cout << "Thao tac khong hop le!\n";
                 cout << endl;
@@ -241,10 +254,12 @@ public:
                     return;
                 break;
             }
+            }
         }
     }
     void end_task()
     {
+        system("cls");
         cout << "\t\t    __        __" << endl;
         cout << "\t\t ********  ********" << endl;
         cout << "\t\t****____________****" << endl;
