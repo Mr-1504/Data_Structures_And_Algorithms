@@ -42,6 +42,7 @@ public:
             cout << "\t---------------------------------------------\n";
             cout << "\t|\t1. Nhap do thi tu file.             |\n";
             cout << "\t|\t2. Nhap moi file do thi tu ban phim.|\n";
+            cout << "\t|\t3. Thoat.                           |\n";
             cout << "\t---------------------------------------------\n";
             cout << "Chon tac vu: ";
             int n;
@@ -83,6 +84,8 @@ public:
                     return;
                 break;
             }
+            case 3:
+                return;
             default:
             {
                 system("cls");
