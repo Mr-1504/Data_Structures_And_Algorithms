@@ -4,6 +4,24 @@
 #define _danh_sach_cpp
 using namespace std;
 
+int _cmp(string s, string t)
+{
+    int len1 = s.length(), len2 = t.length();
+    int min_len = len1 < len2 ? len1 : len2;
+    for (int i = 0; i < min_len; i++)
+    {
+        if (tolower(s[i]) != tolower(t[i]))
+        {
+            return tolower(s[i]) - tolower(t[i]);
+        }
+    }
+    if (len1 < len2)
+        return '\0' - t[min_len];
+    else if (len1 > len2)
+        return s[min_len] - '\0';
+    else
+        return 0;
+}
 class list_cb
 {
     Don_list<can_bo> a;
@@ -82,7 +100,8 @@ public:
             break;
         }
     }
-    void del(){
+    void del()
+    {
         a.~Don_list();
     }
     void sort()
@@ -147,7 +166,7 @@ public:
         int j = 0;
         for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
-            if ((*i).chuc_vu() == cvu)
+            if (!_cmp((*i).chuc_vu(), cvu))
             {
                 if (!j)
                     cout << "Danh sach cac can bo co chuc vu " << cvu << " la" << endl;
@@ -163,7 +182,7 @@ public:
         int j = 0;
         for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
-            if ((*i).he_so_luong() == hsl && (*i).phong_ban() == phong)
+            if ((*i).he_so_luong() == hsl && !_cmp((*i).phong_ban(), phong))
             {
                 if (!j)
                     cout << "Danh sach cac can bo co he so luong tren 4.4 o phong ban " << phong << "la:\n";

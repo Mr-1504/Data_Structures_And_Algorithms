@@ -31,6 +31,7 @@ public:
     }
     void home()
     {
+        system("cls");
         if (cnt)
         {
             cout << "\t-----------------^-^-----------------\n";
@@ -46,6 +47,7 @@ public:
             {
             case 1:
             {
+                system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
                 cnt = a.create_list();
                 cout << "\nTao moi hoan tat!\n\n";
@@ -88,6 +90,7 @@ public:
             {
             case 1:
             {
+                system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
                 cout << "Luu y! Viec tao moi se xoa di danh sach dang co.\n";
                 cout << "Nhap 'y' de xac nhan hoac 'n' de quay lai: ";
@@ -109,6 +112,7 @@ public:
 
                 if (x == 'y')
                 {
+                    system("cls");
                     a.del();
                     a = Don_list<can_bo>();
                     cnt = a.create_list();
@@ -126,6 +130,7 @@ public:
             }
             case 2:
             {
+                system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
                 a.add();
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -137,6 +142,7 @@ public:
             }
             case 3:
             {
+                system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
                 a._display();
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -148,6 +154,7 @@ public:
             }
             case 4:
             {
+                system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
                 a.display();
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -159,6 +166,7 @@ public:
             }
             case 5:
             {
+                system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
                 cout << "Nhap chuc vu can tim: ";
                 string y;
@@ -174,6 +182,7 @@ public:
             }
             case 6:
             {
+                system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
                 cout << "Nhap he so luong va phong ban can can tim: ";
                 string z;
@@ -191,6 +200,7 @@ public:
             }
             case 7:
             {
+                system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
                 cout << "Sap xep thanh cong!\n";
                 a.sort();
@@ -217,6 +227,7 @@ public:
     }
     void end_task()
     {
+        system("cls");
         cout << "\t\t    __        __" << endl;
         cout << "\t\t ********  ********" << endl;
         cout << "\t\t****____________****" << endl;
