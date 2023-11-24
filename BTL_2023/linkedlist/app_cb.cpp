@@ -22,6 +22,7 @@ public:
                 return false;
             else
             {
+                system("cls");
                 cout << "\nThao tac khong hop le.\n";
                 tmp++;
             }
@@ -40,17 +41,16 @@ public:
             cout << "\t|\t1. Tao moi danh sach        |\n";
             cout << "\t|\t2. Thoat chuong trinh.      |\n";
             cout << "\t-------------------------------------\n";
-            int n;
+            char n;
             cout << "Chon tac vu mong muon: ";
             cin >> n;
             switch (n)
             {
-            case 1:
+            case '1':
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
                 cnt = a.create_list();
-                cout << "\nTao moi hoan tat!\n\n";
                 cout << "--------------------------^-^------------------------------\n";
                 if (confirm())
                     home();
@@ -58,7 +58,7 @@ public:
                     return;
                 break;
             }
-            case 2:
+            case '2':
                 return;
             default:
             {
@@ -83,12 +83,12 @@ public:
             cout << "\t|\t7. Sap xep danh sach.                             |\n";
             cout << "\t|\t8. Thoat chuong trinh.                            |\n";
             cout << "\t-----------------------------------------------------------\n";
-            int n;
+            char n;
             cout << "Chon tac vu mong muon: ";
             cin >> n;
             switch (n)
             {
-            case 1:
+            case '1':
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -116,7 +116,6 @@ public:
                     a.del();
                     a = Don_list<can_bo>();
                     cnt = a.create_list();
-                    cout << "\nTao moi hoan tat!\n";
                     cout << "--------------------------^-^------------------------------\n";
                     cout << "Nhap 'y' de tro ve man hinh chinh hoac 'n' de thoat: ";
                     if (confirm())
@@ -128,7 +127,7 @@ public:
                     home();
                 break;
             }
-            case 2:
+            case '2':
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -140,7 +139,7 @@ public:
                     return;
                 break;
             }
-            case 3:
+            case '3':
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -152,7 +151,7 @@ public:
                     return;
                 break;
             }
-            case 4:
+            case '4':
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -164,7 +163,7 @@ public:
                     return;
                 break;
             }
-            case 5:
+            case '5':
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -180,7 +179,7 @@ public:
                     return;
                 break;
             }
-            case 6:
+            case '6':
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -198,7 +197,7 @@ public:
                     return;
                 break;
             }
-            case 7:
+            case '7':
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -211,7 +210,7 @@ public:
                     return;
                 break;
             }
-            case 8:
+            case '8':
                 return;
             default:
             {

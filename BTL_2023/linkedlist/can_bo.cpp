@@ -2,6 +2,25 @@
 #ifndef _can_bo_cpp
 #define _can_bo_cpp
 using namespace std;
+
+int _cmp(string s, string t)
+{
+    int len1 = s.length(), len2 = t.length();
+    int min_len = len1 < len2 ? len1 : len2;
+    for (int i = 0; i < min_len; i++)
+    {
+        if (tolower(s[i]) != tolower(t[i]))
+        {
+            return tolower(s[i]) - tolower(t[i]);
+        }
+    }
+    if (len1 < len2)
+        return '\0' - t[min_len];
+    else if (len1 > len2)
+        return s[min_len] - '\0';
+    else
+        return 0;
+}
 class can_bo
 {
     int id;
@@ -44,6 +63,12 @@ public:
         this->hsl = x.hsl;
         tinh_luong();
         return *this;
+    }
+    bool operator==(can_bo x)
+    {
+        if (id == x.id && !_cmp(ho_ten(), x.ho_ten()) && !_cmp(ban, x.ban) && !_cmp(cvu, x.cvu) && hsl == x.hsl)
+            return true;
+        return false;
     }
     bool input()
     {

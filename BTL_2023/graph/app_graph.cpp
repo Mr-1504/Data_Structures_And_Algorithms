@@ -37,7 +37,7 @@ public:
         system("cls");
         if (cnt)
         {
-            cout << "\t---------------------^-^---------------------\n";
+            cout << "\n\t---------------------^-^---------------------\n";
             cout << "\t|\t    Danh sach tac vu.               |\n";
             cout << "\t---------------------------------------------\n";
             cout << "\t|\t1. Nhap do thi tu file.             |\n";
@@ -57,7 +57,7 @@ public:
                 inp >> a;
                 inp.close();
                 cnt = false;
-                cout << "--------------------------------------\n";
+                cout << "--------------------\n";
                 cout << endl;
                 if (confirm())
                     home(input, output, child);
@@ -103,7 +103,7 @@ public:
         }
         else
         {
-            cout << "\t-------------------^-^-------------------\n";
+            cout << "\n\t-------------------^-^-------------------\n";
             cout << "\t|\t     Danh sach tac vu.          |\n";
             cout << "\t-----------------------------------------\n";
             cout << "\t|\t1. Nhap vao do thi moi.         |\n";
