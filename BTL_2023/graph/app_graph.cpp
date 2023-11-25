@@ -24,11 +24,13 @@ public:
                 return false;
             else
             {
+                system("cls");
                 cout << "\nThao tac khong hop le.\n";
                 tmp++;
             }
         }
-        cout << "Ban da nhap sai qua nhieu lan. Thoat chuong trinh.\n";
+        cout << "Ban da nhap sai qua nhieu lan. Thoat chuong trinh.\n\n";
+        cin.get();
         return false;
     }
 
@@ -45,11 +47,11 @@ public:
             cout << "\t|\t3. Thoat.                           |\n";
             cout << "\t---------------------------------------------\n";
             cout << "Chon tac vu: ";
-            int n;
+            char n;
             cin >> n;
             switch (n)
             {
-            case 1:
+            case '1':
             {
                 system("cls");
                 cout << "\n--------^-^--------\n";
@@ -65,7 +67,7 @@ public:
                     return;
                 break;
             }
-            case 2:
+            case '2':
             {
                 system("cls");
                 cout << "\n--------^-^--------\n";
@@ -84,7 +86,7 @@ public:
                     return;
                 break;
             }
-            case 3:
+            case '3':
                 return;
             default:
             {
@@ -115,12 +117,12 @@ public:
             cout << "\t|\t7. Thoat.                       |\n";
             cout << "\t-----------------------------------------\n";
             cout << "Chon tac vu: ";
-            int n;
+            char n;
             cin >> n;
             cout << endl;
             switch (n)
             {
-            case 1:
+            case '1':
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -159,7 +161,7 @@ public:
                     return;
                 break;
             }
-            case 2:
+            case '2':
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -175,7 +177,7 @@ public:
                     return;
                 break;
             }
-            case 3:
+            case '3':
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -190,7 +192,7 @@ public:
                     return;
                 break;
             }
-            case 4:
+            case '4':
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -210,7 +212,7 @@ public:
                     return;
                 break;
             }
-            case 5:
+            case '5':
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -224,7 +226,7 @@ public:
                     return;
                 break;
             }
-            case 6:
+            case '6':
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -243,7 +245,7 @@ public:
                     return;
                 break;
             }
-            case 7:
+            case '7':
                 return;
             default:
             {

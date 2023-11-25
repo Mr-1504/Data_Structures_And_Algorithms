@@ -51,12 +51,12 @@ public:
     }
     bool create_list()
     {
-        cout << "\nTao danh sach can bo\nLuu y nhap ma can bo nho hon 1 de dung!\n\n";
         int i = 0, _t = 0;
         bool x;
         while (1)
         {
             system("cls");
+            cout << "\nTao danh sach can bo\nLuu y nhap ma can bo nho hon 1 de dung!\n\n";
             cout << "Nhap thong tin can bo thu " << ++i << endl;
             can_bo temp;
             x = temp.input();
@@ -65,7 +65,6 @@ public:
                 cout << "Ban co muon nhap lai?\n";
                 cout << "Nhap 'y' de nhap lai hoac 'n' de dung: ";
                 char t;
-                cin.ignore();
                 cin >> t;
                 while (t != 'y' && t != 'n')
                 {
@@ -75,7 +74,6 @@ public:
                     system("cls");
                     cout << "Khong hop le, vui long nhap lai.\n";
                     cout << "Nhap 'y' de nhap lai hoac 'n' de dung: ";
-                    cin.ignore();
                     cin >> t;
                 }
                 if (t == 'y')
@@ -117,8 +115,8 @@ public:
         cout << "\t2. Khong chon\n";
         char t;
         cout << "Tac vu: ";
-        cin.ignore();
         cin >> t;
+        can_bo temp;
         switch (t)
         {
         case '1':
@@ -139,7 +137,6 @@ public:
                 cin >> n;
             }
             system("cls");
-            can_bo temp;
             cout << "Nhap thong tin can bo can them\n";
             cin >> temp;
             system("cls");
@@ -148,7 +145,6 @@ public:
                 _t = 0;
                 cout << "Ban co muon nhap lai?\n";
                 cout << "Nhap 'y' de nhap lai hoac 'n' de dung: ";
-                cin.ignore();
                 char x;
                 cin >> x;
 
@@ -163,7 +159,6 @@ public:
                     system("cls");
                     cout << "Khong hop le, vui long nhap lai.\n";
                     cout << "Nhap 'y' de nhap lai hoac 'n' de dung: ";
-                    cin.ignore();
                     cin >> x;
                 }
                 system("cls");
@@ -176,25 +171,27 @@ public:
                 }
                 else
                     return;
-                if (n == 1)
-                    a.push_front(temp);
-                else if (n == a.size() + 1)
-                    a.push_back(temp);
-                else
-                {
-                    int j = 0;
-                    for (iter<can_bo> i = a.dau(); i != nullptr; i++, j++)
-                        if (j == n - 1)
-                            a.insert(i.getnode(), temp);
-                }
-                break;
             }
+            if (n == 1)
+                a.push_front(temp);
+            else if (n == a.size() + 1)
+                a.push_back(temp);
+            else
+            {
+                int j = 1;
+                for (iter<can_bo> i = a.dau(); i != nullptr; i++, j++)
+                    if (j == n - 1)
+                    {
+                        a.insert(i.getnode(), temp);
+                        cout << "J = " << j << endl;
+                    }
+            }
+            break;
         }
         case '2':
         {
             system("cls");
             cout << "Nhap thong tin can bo can them\n";
-            can_bo temp;
             cin >> temp;
             system("cls");
             int _t = 0;
@@ -204,7 +201,6 @@ public:
                 cout << "Ban co muon nhap lai?\n";
                 cout << "Nhap 'y' de nhap lai hoac 'n' de dung: ";
                 char x;
-                cin.ignore();
                 cin >> x;
 
                 while (x != 'y' && x != 'n')
@@ -215,27 +211,27 @@ public:
                     system("cls");
                     cout << "Khong hop le, vui long nhap lai.\n";
                     cout << "Nhap 'y' de nhap lai hoac 'n' de dung: ";
-                    cin.ignore();
                     cin >> x;
                 }
                 system("cls");
                 if (x == 'y')
                 {
+                    cout << "Nhap thong tin can bo can them\n";
                     cin >> temp;
                     system("cls");
                     continue;
                 }
                 else
                     return;
-                ;
-                a.push_back(temp);
-                break;
             }
+            a.push_back(temp);
+            break;
         }
         default:
             cout << "\tThao tac khong hop le!\n";
             break;
         }
+        cout << "Da them thanh cong can bo \"" << temp.ho_ten() << "\" vao danh sach.\n";
     }
     void del()
     {
@@ -290,12 +286,12 @@ public:
             if (!_cmp((*i).chuc_vu(), cvu))
             {
                 if (!j)
-                    cout << "Danh sach cac can bo co chuc vu " << cvu << " la" << endl;
+                    cout << "Danh sach cac can bo co chuc vu \"" << cvu << "\" la:" << endl;
                 cout << ++j << ". " << *i << endl;
             }
         }
         if (!j)
-            cout << "Khong co can bo giu chuc vu " << cvu << endl;
+            cout << "Khong co can bo giu chuc vu \"" << cvu << "\".\n";
         return;
     }
     void search(float hsl, string phong)
@@ -303,10 +299,10 @@ public:
         int j = 0;
         for (iter<can_bo> i = a.dau(); i != nullptr; i++)
         {
-            if ((*i).he_so_luong() == hsl && !_cmp((*i).phong_ban(), phong))
+            if ((*i).he_so_luong() >= hsl && !_cmp((*i).phong_ban(), phong))
             {
                 if (!j)
-                    cout << "Danh sach cac can bo co he so luong tren 4.4 o phong ban " << phong << "la:\n";
+                    cout << "Danh sach cac can bo co he so luong tren " << hsl << " o phong \"" << phong << "\" la:\n";
                 cout << ++j << ". " << *i << endl;
             }
         }

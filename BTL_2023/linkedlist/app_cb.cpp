@@ -3,7 +3,8 @@
 #define HEADER_NAME
 using namespace std;
 
-class app{
+class app
+{
     list_cb a;
     bool cnt = true;
 
@@ -23,11 +24,13 @@ public:
             else
             {
                 system("cls");
+                cout << "\n--------------------------^-^------------------------------";
                 cout << "\nThao tac khong hop le.\n";
                 tmp++;
             }
         }
         cout << "Ban da nhap sai qua nhieu lan. Thoat chuong trinh.\n";
+        cin.get();
         return false;
     }
     void home()
@@ -41,12 +44,12 @@ public:
             cout << "\t|\t1. Tao moi danh sach        |\n";
             cout << "\t|\t2. Thoat chuong trinh.      |\n";
             cout << "\t-------------------------------------\n";
-            char n;
+            int n;
             cout << "Chon tac vu mong muon: ";
             cin >> n;
             switch (n)
             {
-            case '1':
+            case 1:
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -58,7 +61,7 @@ public:
                     return;
                 break;
             }
-            case '2':
+            case 2:
                 return;
             default:
             {
@@ -83,12 +86,12 @@ public:
             cout << "\t|\t7. Sap xep danh sach.                             |\n";
             cout << "\t|\t8. Thoat chuong trinh.                            |\n";
             cout << "\t-----------------------------------------------------------\n";
-            char n;
+            int n;
             cout << "Chon tac vu mong muon: ";
             cin >> n;
             switch (n)
             {
-            case '1':
+            case 1:
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -101,9 +104,10 @@ public:
                 {
                     cin >> x;
                     tmp++;
-                    if(x == 'y' || x == 'n')
+                    if (x == 'y' || x == 'n')
                         break;
-                    if(tmp ==3 ) {
+                    if (tmp == 3)
+                    {
                         cout << "Nhap qua nhieu lan. Thoat chuong trinh.\n";
                         return;
                     }
@@ -127,7 +131,7 @@ public:
                     home();
                 break;
             }
-            case '2':
+            case 2:
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -139,7 +143,7 @@ public:
                     return;
                 break;
             }
-            case '3':
+            case 3:
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -151,7 +155,7 @@ public:
                     return;
                 break;
             }
-            case '4':
+            case 4:
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -163,7 +167,7 @@ public:
                     return;
                 break;
             }
-            case '5':
+            case 5:
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -179,7 +183,7 @@ public:
                     return;
                 break;
             }
-            case '6':
+            case 6:
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
@@ -197,11 +201,11 @@ public:
                     return;
                 break;
             }
-            case '7':
+            case 7:
             {
                 system("cls");
                 cout << "\n--------------------------^-^------------------------------\n";
-                cout << "Sap xep thanh cong!\n";
+                cout << "Sap xep thanh cong!\nDanh sach sau khi sap xep:\n\n";
                 a.sort();
                 a._display();
                 if (confirm())
@@ -210,7 +214,7 @@ public:
                     return;
                 break;
             }
-            case '8':
+            case 8:
                 return;
             default:
             {
