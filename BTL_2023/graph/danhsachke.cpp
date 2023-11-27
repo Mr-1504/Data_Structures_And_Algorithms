@@ -173,16 +173,17 @@ public:
             while (temp != nullptr)
             {
                 int v = (*temp).first;
+                int w = (*temp).second;
                 if (!t[v] && !_t[k * n + v])
                 {
                     if (cnt)
                     {
-                        output << "Do thi con thu " << j << endl;
+                        output << "Đồ thị con thứ " << j << ":\n";
                         cout << "Do thi con thu " << j++ << endl;
                         cnt = false;
                     }
-                    cout << "\t" << k << " " << v << endl;
-                    output << "\t" << k << " " << v << endl;
+                    cout << "\t" << k << " " << v << " " << w << endl;
+                    output << "\t" << k << " " << v << " " << w << endl;
                     c.push(v);
                     _t[k * n + v] = 1;
                 }
@@ -240,7 +241,7 @@ public:
     }
     void con(ofstream &output)
     {
-        output << "\nDanh sach do thi con\n";
+        output << "Danh sách đồ thị con:\n";
         cout << "\nDanh sach do thi con\n";
         int _t[n * n + 1] = {0}, t[n + 1] = {0}, j = 1;
         for (int i = 0; i < n; i++)
@@ -309,7 +310,7 @@ public:
         for (int i = 0; i < n; i++)
         {
             int x, y, w;
-            cout << "Nhap cac canh va trong so: ";
+            cout << "Nhap canh thu " << i+1 << " va trong so: ";
             cin >> x >> y >> w;
             output << x << " " << y << " " << w << endl;
         }

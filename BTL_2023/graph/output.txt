@@ -1,19 +1,19 @@
 Số đỉnh: 5
 Đỉnh 1 kết nối với:
-	Đỉnh 2 có trọng số 3
+	Đỉnh 2 có trọng số 5
 	Đỉnh 3 có trọng số 2
 
 Đỉnh 2 kết nối với:
-	Đỉnh 1 có trọng số 3
-	Đỉnh 3 có trọng số 1
+	Đỉnh 1 có trọng số 5
+	Đỉnh 3 có trọng số 6
 
 Đỉnh 3 kết nối với:
-	Đỉnh 2 có trọng số 1
+	Đỉnh 2 có trọng số 6
 	Đỉnh 1 có trọng số 2
 
 Đỉnh 4 kết nối với:
-	Đỉnh 5 có trọng số 3
+	Đỉnh 5 có trọng số 2
 
 Đỉnh 5 kết nối với:
-	Đỉnh 4 có trọng số 3
+	Đỉnh 4 có trọng số 2
 

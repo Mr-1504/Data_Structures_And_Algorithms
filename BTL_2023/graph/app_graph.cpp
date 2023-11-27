@@ -3,11 +3,14 @@
 #define _app_do_thi_
 using namespace std;
 
-class app{
+class app
+{
     Graph a;
     bool cnt;
+
 public:
-    app(){
+    app()
+    {
         cnt = true;
     }
     bool confirm()
@@ -55,7 +58,31 @@ public:
             {
                 system("cls");
                 cout << "\n--------^-^--------\n";
+                cout << "1. Nhap tu file goc \"input.txt\".\n";
+                cout << "2. Nhap tu file khac.\n";
+                int _n;
+                cout << "Nhap lua chon: ";
+                cin >> _n;
+                system("cls");
+                if (_n == 2)
+                {
+                    cout << "Nhap ten file: ";
+                    string _temp;
+                    cin >> _temp;
+                    input = _temp;
+                    system("cls");
+                }
                 ifstream inp(input);
+                if (!inp.is_open())
+                {
+                    cout << "Khong the mo file.\n";
+                    cout << "--------------------\n";
+                    input = "input.txt";
+                    if (confirm())
+                        home(input, output, child);
+                    else
+                        return;
+                }
                 inp >> a;
                 inp.close();
                 cnt = false;
@@ -146,30 +173,102 @@ public:
                 if (t == 'n')
                     home(input, output, child);
                 system("cls");
-                ofstream out(input);
-                a.input_Gr(out);
-                out.close();
-                ifstream inp(input);
-                inp >> a;
-                inp.close();
-                cnt = false;
+                cout << "\n--------^-^--------\n";
+                cout << "1. Nhap tu file goc \"input.txt\".\n";
+                cout << "2. Nhap tu file khac.\n";
+                cout << "3. Nhap tu ban phim.\n";
+                int _n;
+                cout << "\nNhap lua chon: ";
+                cin >> _n;
+                system("cls");
+                switch (_n)
+                {
+                case 1:
+                {
+                    input = "input.txt";
+                    ifstream inp(input);
+                    inp >> a;
+                    inp.close();
+                    break;
+                }
+                case 2:
+                {
+                    cout << "Nhap ten file: ";
+                    string _temp;
+                    cin >> _temp;
+                    input = _temp;
+                    system("cls");
+                    ifstream inp(input);
+                    if (!inp.is_open())
+                    {
+                        cout << "Khong the mo file.\n";
+                        cout << "--------------------\n";
+                        input = "input.txt";
+                        if (confirm())
+                            home(input, output, child);
+                        else
+                            return;
+                    }
+                    else
+                    {
+                        ifstream inp(input);
+                        inp >> a;
+                        inp.close();
+                    }
+                    break;
+                }
+                case 3:
+                {
+                    cout << "Ban dang thao tac tren file \"" << input << "\", ban co doi file?\n";
+                    cout << "Nhap \"y\" de doi hoac \"n\" de tiep tuc: ";
+                    char _t;
+                    cin >> _t;
+                    system("cls");
+                    if (_t == 'y')
+                    {
+                        cout << "Nhap ten file: ";
+                        string _temp;
+                        cin >> _temp;
+                        input = _temp;
+                        system("cls");
+                        ifstream inp(input);
+                        if (!inp.is_open())
+                        {
+                            cout << "Khong the mo file.\n";
+                            cout << "--------------------\n";
+                            input = "input.txt";
+                            if (confirm())
+                                home(input, output, child);
+                            else
+                                return;
+                        }
+                    }
+                    ofstream out(input);
+                    a.input_Gr(out);
+                    out.close();
+                    ifstream inp(input);
+                    inp >> a;
+                    inp.close();
+                    cnt = false;
+                    break;
+                }
+                }
                 cout << "\n--------------------------^-^------------------------------\n";
                 cout << endl;
                 if (confirm())
                     home(input, output, child);
                 else
                     return;
-                break;
             }
             case '2':
             {
                 system("cls");
-                cout << "\n--------------------------^-^------------------------------\n";
+                cout << "\n --------^-^--------\n";
                 ofstream out(output);
                 out << a;
                 out.close();
                 cout << "Tac vu thanh cong!\n";
-                cout << "\n--------------------------^-^------------------------------\n";
+                cout << "\n --------^-^--------\n";
                 cout << endl;
                 if (confirm())
                     home(input, output, child);
@@ -274,6 +373,5 @@ public:
         cout << "\t\t      *******" << endl;
         cout << "\t\t         *" << endl;
     }
-
 };
 #endif

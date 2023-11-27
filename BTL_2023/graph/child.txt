@@ -1,8 +1,5 @@
-
-Danh sach do thi con
-Do thi con thu 1
-	1 2
-	1 3
-	2 3
-Do thi con thu 2
-	4 5
+Danh sách đồ thị con:
+Đồ thị con thứ 1:
+	1 2 4
+	1 4 2
+	2 3 5
