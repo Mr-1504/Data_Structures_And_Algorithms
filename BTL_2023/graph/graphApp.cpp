@@ -18,9 +18,9 @@ public:
     app()
     {
         cnt = true;
-        string input = "input.txt";
-        string output = "output.txt";
-        string child = "child.txt";
+        input = "input.txt";
+        output = "output.txt";
+        child = "child.txt";
     }
     void inputFile();
     void inputKeyBoard();
