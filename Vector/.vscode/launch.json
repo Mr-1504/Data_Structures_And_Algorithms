@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/truon/Documents/Zalo Received Files/Vector",
-      "program": "c:/Users/truon/Documents/Zalo Received Files/Vector/build/Debug/outDebug",
+      "cwd": "d:/minh/desktop/Desktop/code/Data_Structures_And_Algorithms/Vector",
+      "program": "d:/minh/desktop/Desktop/code/Data_Structures_And_Algorithms/Vector/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

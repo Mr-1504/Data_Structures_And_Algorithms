@@ -1,9 +1,8 @@
-#include "app_cb.cpp"
+#include "cbApp.cpp"
 using namespace std;
 int main()
 {
     app a;
-    a.home();
-    a.end_task();
+    a.run();
     return 0;
 } 

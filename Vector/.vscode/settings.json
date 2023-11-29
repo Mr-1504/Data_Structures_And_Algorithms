@@ -63,5 +63,6 @@
     "regex": "cpp",
     "utility": "cpp",
     "valarray": "cpp"
-  }
+  },
+  "C_Cpp_Runner.msvcSecureNoWarnings": false
 }

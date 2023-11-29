@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/minh/desktop/Desktop/code/Data_Structures_And_Algorithms/BTL_2023/graph",
-      "program": "d:/minh/desktop/Desktop/code/Data_Structures_And_Algorithms/BTL_2023/graph/build/Debug/outDebug",
+      "cwd": "d:/minh/desktop/Desktop/code/Data_Structures_And_Algorithms/BTL_2023/linkedlist",
+      "program": "d:/minh/desktop/Desktop/code/Data_Structures_And_Algorithms/BTL_2023/linkedlist/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
