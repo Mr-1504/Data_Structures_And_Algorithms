@@ -1,9 +1,7 @@
-#include "app_graph.cpp"
+#include "graphApp.cpp"
 using namespace std;
 int main()
 {
     app a;
-    a.home();
-    a.end_task();
-    system("pause");
+    a.run();
 }
