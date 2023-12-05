@@ -166,7 +166,7 @@ void Graph::_bfs(int u, int t[], int _t[], int &j, ofstream &output)
                 if (cnt)
                 {
                     output << "Đồ thị con thứ " << j << ":\n";
-                    cout << "Do thi con thu " << j++ << endl;
+                    cout << "Do thi con thu " << j++ << ":\n";
                     cnt = false;
                 }
                 cout << "\t" << k << " " << v << " " << w << endl;

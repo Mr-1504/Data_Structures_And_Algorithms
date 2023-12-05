@@ -5,25 +5,25 @@ using namespace std;
 template <class T>
 class Don_list
 {
-    node<T> *head, *end;
+    node<T> *head, *tail;
     int num;
 
 public:
     Don_list()
     {
-        head = end = nullptr;
+        head = tail = nullptr;
         num = 0;
     }
     int size() { return num; }
     bool empty() { return num == 0; }
     T &front() { return head->getE(); }
-    T &back() { return end->getE(); }
+    T &back() { return tail->getE(); }
     Don_list &operator = (const Don_list&x){
         head = new node<T>;
         head = x.head;
         num= x.num;
-        end = new node<T>;
-        end= x.end;
+        tail = new node<T>;
+        tail= x.tail;
         return *this;
     }
     void push_front(T x)
@@ -33,7 +33,7 @@ public:
         temp->setE(x);
         head = temp;
         if (!num)
-            end = temp;
+            tail = temp;
         num++;
     }
     void insert(node<T> *p, T x)
@@ -46,8 +46,8 @@ public:
             temp->setNext(p->getNext());
             p->setNext(temp);
             temp->setE(x);
-            if (end == p)
-                end = temp;
+            if (tail == p)
+                tail = temp;
             num++;
         }
     }
@@ -62,7 +62,7 @@ public:
         if (num == 1)
         {
             delete head;
-            head = end = nullptr;
+            head = tail = nullptr;
             return;
         }
         node<T> *temp = new node<T>;
@@ -94,15 +94,15 @@ public:
         {
             node<T> *temp = new node<T>;
             temp = head;
-            while (temp->getNext() != end)
+            while (temp->getNext() != tail)
             {
                 temp = temp->getNext();
             }
             erase(temp);
-            end=temp;
+            tail=temp;
         }
     }
     iter<T> dau() { return head; }
-    iter<T> cuoi() { return end; }
+    iter<T> cuoi() { return tail; }
 };
 #endif
